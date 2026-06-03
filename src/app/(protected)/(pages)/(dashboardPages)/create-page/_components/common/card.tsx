@@ -64,11 +64,11 @@ const Card = ({
         {...dragHandlers}
       >
         <UICard
-          className={`bg-primary/10 cursor-grab p-4 active:cursor-grabbing ${isEditing || isSelected ? "border-primary bg-transparent" : ""}`}
+          className={`cursor-grab border p-4 active:cursor-grabbing ${isEditing || isSelected ? "border-primary bg-transparent" : ""}`}
           onClick={onCardClick}
           onDoubleClick={onCardDoubleClick}
         >
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-5">
             {isEditing ? (
               <Input
                 ref={inputRef}
@@ -76,16 +76,16 @@ const Card = ({
                 onChange={(e) => onEditChange(e.target.value)}
                 onBlur={onEditBlur}
                 onKeyDown={onEditKeyDown}
-                className="text-base sm:text-lg"
+                className="text-base sm:text-lg border"
               />
             ) : (
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-4">
                 <span
-                  className={`bg-primary/20 rounded-xl px-4 py-1 text-base sm:text-lg ${isEditing || isSelected ? "bg-secondary text-secondary-foreground" : ""}`}
+                  className={`rounded-full border border-border px-2.5 py-1 text-sm ${isEditing || isSelected ? "bg-secondary text-secondary-foreground" : ""}`}
                 >
                   {card.order}
                 </span>
-                <span className="text-base sm:text-lg">{card.title}</span>
+                <span className="text-base sm:text-base">{card.title}</span>
               </div>
             )}
             <Button

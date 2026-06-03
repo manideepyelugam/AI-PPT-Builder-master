@@ -12,8 +12,9 @@ const NewProjectButton = ({ user }: { user: User }) => {
   return (
     <Button
       className="gap-2 font-medium shadow-sm"
-      size="default"
+      size="sm"
       disabled={!user.subscription}
+
       onClick={() => router.push("/create-page")}
     >
       <Plus className="size-4" />

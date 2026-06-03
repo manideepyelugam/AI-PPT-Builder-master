@@ -167,7 +167,7 @@ const ProjectCard = ({
           <h3 className="text-foreground line-clamp-1 text-sm font-medium">
             {title}
           </h3>
-          <div className="flex w-full items-center justify-between gap-2">
+          <div className="flex w-full mt-5 items-center justify-between gap-2">
             <p
               suppressHydrationWarning
               className="text-muted-foreground text-xs"
@@ -206,9 +206,9 @@ const ProjectCard = ({
                 >
                   <Button
                     size="sm"
-                    variant="ghost"
+                    variant="destructive"
                     disabled={loading}
-                    className="text-muted-foreground hover:text-destructive h-7 px-3 text-xs"
+                    className="text-destructive-foreground h-7 px-3 cursor-pointer text-xs"
                   >
                     Delete
                   </Button>

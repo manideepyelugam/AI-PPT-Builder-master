@@ -67,11 +67,10 @@ const TemplateSelect = () => {
             <button
               key={f}
               onClick={() => setFilter(f)}
-              className={`focus-visible:ring-ring rounded-lg px-3 py-1.5 text-sm font-medium capitalize transition-colors focus-visible:ring-2 focus-visible:outline-none ${
-                filter === f
-                  ? "bg-background text-foreground shadow-sm"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
+              className={`focus-visible:ring-ring rounded-lg px-3 py-1.5 text-sm font-medium capitalize transition-colors focus-visible:ring-2 focus-visible:outline-none ${filter === f
+                ? "bg-background text-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+                }`}
             >
               {f}
             </button>
@@ -94,9 +93,8 @@ const TemplateSelect = () => {
               transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
               onClick={() => handlePick(theme)}
               aria-pressed={isSelected}
-              className={`group focus-visible:ring-ring relative overflow-hidden rounded-2xl text-left focus-visible:ring-2 focus-visible:outline-none ${
-                isSelected ? "ring-primary ring-2" : ""
-              }`}
+              className={`group focus-visible:ring-ring p-3 relative overflow-hidden rounded-2xl text-left focus-visible:ring-2 focus-visible:outline-none ${isSelected ? "ring-primary ring-2" : ""
+                }`}
             >
               {/* Preview */}
               <div
@@ -144,7 +142,7 @@ const TemplateSelect = () => {
               </div>
 
               {/* Footer */}
-              <div className="flex items-center justify-between px-1 pt-3">
+              <div className="flex items-center justify-between px-1 py-2 pt-3">
                 <div>
                   <div className="text-foreground text-sm font-medium">
                     {theme.name}
@@ -176,7 +174,7 @@ const TemplateSelect = () => {
       {/* Sticky continue bar */}
       <motion.div
         variants={itemVatiants}
-        className="bg-background/85 border-border sticky bottom-4 mx-auto flex max-w-3xl items-center justify-between rounded-2xl border p-3 backdrop-blur"
+        className="fixed bottom-4 left-1/2 z-50 w-[calc(100%-2rem)] max-w-3xl -translate-x-1/2 bg-background/85 border-border flex items-center justify-between rounded-2xl border p-3 backdrop-blur-md shadow-lg"
       >
         <div className="text-sm">
           {selectedTheme ? (
@@ -192,6 +190,7 @@ const TemplateSelect = () => {
             </span>
           )}
         </div>
+
         <Button
           size="default"
           onClick={handleContinue}

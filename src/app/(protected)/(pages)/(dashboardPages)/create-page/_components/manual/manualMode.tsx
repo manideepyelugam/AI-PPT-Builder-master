@@ -101,7 +101,7 @@ const ManualMode = () => {
 
   return (
     <motion.div
-      className="mx-auto w-full max-w-3xl space-y-6 px-4 py-10 sm:px-6 lg:px-8"
+      className="mx-auto w-full  space-y-6 px-4 sm:px-6 lg:px-8"
       variants={containerVaraints}
       initial="hidden"
       animate="visible"
@@ -115,93 +115,101 @@ const ManualMode = () => {
         Back
       </Button>
 
-      <motion.div variants={itemVatiants} className="space-y-2 text-center">
-        <h1 className="text-foreground text-3xl font-semibold tracking-tight md:text-4xl">
-          Build <span className="text-vivid">manually</span>
-        </h1>
-        <p className="text-muted-foreground text-base">
-          Enter your slide titles. AI will fill in content and imagery.
-        </p>
-        {selectedTheme && (
-          <p className="text-muted-foreground text-sm">
-            Template:{" "}
-            <span className="text-foreground font-medium">
-              {selectedTheme.name}
-            </span>
+      <div className="mx-auto  max-w-3xl space-y-5">
+
+
+
+        <motion.div variants={itemVatiants} className="space-y-2 text-center">
+          <h1 className="text-foreground text-3xl font-semibold tracking-tight md:text-4xl">
+            Build <span className="text-vivid">manually</span>
+          </h1>
+          <p className="text-muted-foreground text-base">
+            Enter your slide titles. AI will fill in content and imagery.
           </p>
-        )}
-      </motion.div>
+          {selectedTheme && (
+            <p className="text-muted-foreground text-sm">
+              Template:{" "}
+              <span className="text-foreground font-medium">
+                {selectedTheme.name}
+              </span>
+            </p>
+          )}
+        </motion.div>
 
-      <motion.div variants={itemVatiants} className="space-y-2">
-        <label className="text-foreground text-sm font-medium">
-          Presentation title{" "}
-          <span className="text-muted-foreground font-normal">(optional)</span>
-        </label>
-        <Input
-          value={projectTitle}
-          onChange={(e) => setProjectTitle(e.target.value)}
-          placeholder="e.g. Q4 Strategy Review"
-        />
-      </motion.div>
-
-      <motion.div
-        variants={itemVatiants}
-        className="bg-card border-border rounded-2xl border p-4"
-      >
-        <div className="flex items-center gap-2">
+        <motion.div variants={itemVatiants} className="space-y-2">
+          <label className="text-foreground text-sm font-medium">
+            Presentation title{" "}
+            <span className="text-muted-foreground font-normal">(optional)</span>
+          </label>
           <Input
-            value={draftTitle}
-            onChange={(e) => setDraftTitle(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                e.preventDefault();
-                addManualTitle();
-              }
-            }}
-            placeholder="Add a slide title…"
-            className="flex-1"
+            value={projectTitle}
+            onChange={(e) => setProjectTitle(e.target.value)}
+            placeholder="e.g. Q4 Strategy Review"
           />
-          <Button onClick={addManualTitle} size="default">
-            <Plus className="mr-1 size-4" />
-            Add
-          </Button>
-        </div>
-        <p className="text-muted-foreground mt-2 text-xs">
-          {outlines.length === 0
-            ? "Tip: drag-reorder titles after adding them."
-            : `${outlines.length} / 15 slides`}
-        </p>
-      </motion.div>
+        </motion.div>
 
-      <CardList
-        outlines={outlines}
-        addMultipleOutlines={(next) => setOutlines(next as OutlineCard[])}
-        editingCard={editingCard}
-        selectedCard={selectedCard}
-        onCardSelect={setSelectedCard}
-        onCardDoubleClick={(id) => setEditingCard(id)}
-        setEditingCard={setEditingCard}
-        setSelectedCard={setSelectedCard}
-      />
+        <motion.div
+          variants={itemVatiants}
+          className="bg-card border-border rounded-2xl border p-4"
+        >
+          <div className="flex items-center gap-2">
+            <Input
+              value={draftTitle}
+              onChange={(e) => setDraftTitle(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  addManualTitle();
+                }
+              }}
+              placeholder="Add a slide title…"
+              className="flex-1"
+            />
+            <Button onClick={addManualTitle} size="default">
+              <Plus className="mr-1 size-4" />
+              Add
+            </Button>
+          </div>
+          <p className="text-muted-foreground mt-2 text-xs">
+            {outlines.length === 0
+              ? "Tip: drag-reorder titles after adding them."
+              : `${outlines.length} / 15 slides`}
+          </p>
+        </motion.div>
 
-      <Button
-        className="my-4 h-12 w-full font-medium"
-        onClick={handleGenerate}
-        disabled={isGenerating || outlines.length === 0}
-      >
-        {isGenerating ? (
-          <>
-            <Loader2 className="mr-2 size-4 animate-spin" />
-            Generating presentation…
-          </>
-        ) : (
-          <>
-            <Sparkles className="mr-2 size-4" />
-            Generate Presentation
-          </>
-        )}
-      </Button>
+        <CardList
+          outlines={outlines}
+          addMultipleOutlines={(next) => setOutlines(next as OutlineCard[])}
+          editingCard={editingCard}
+          selectedCard={selectedCard}
+          onCardSelect={setSelectedCard}
+          onCardDoubleClick={(id) => setEditingCard(id)}
+          setEditingCard={setEditingCard}
+          setSelectedCard={setSelectedCard}
+        />
+
+        <Button
+          className="my-4 h-12 w-full font-medium"
+          onClick={handleGenerate}
+          disabled={isGenerating || outlines.length === 0}
+        >
+          {isGenerating ? (
+            <>
+              <Loader2 className="mr-2 size-4 animate-spin" />
+              Generating presentation…
+            </>
+          ) : (
+            <>
+              <Sparkles className="mr-2 size-4" />
+              Generate Presentation
+            </>
+          )}
+        </Button>
+
+      </div>
     </motion.div>
+
+
   );
 };
 

@@ -66,19 +66,34 @@ cp .env.samples .env.local
 ```
 
 ```env
-# Neon PostgreSQL
-DATABASE_URL=postgres://user:password@ep-xxx.region.aws.neon.tech/neondb?sslmode=require
-DIRECT_URL=postgres://user:password@ep-xxx.region.aws.neon.tech/neondb?sslmode=require&pgbouncer=false
+# Database (Neon PostgreSQL)
+# Use the pooled connection URL for DATABASE_URL (with -pooler in hostname)
+DATABASE_URL=postgres://user:password@ep-xxx-pooler.region.aws.neon.tech/neondb?sslmode=require
+# Use the direct (non-pooled) URL for migrations (no -pooler suffix)
+DIRECT_URL=postgres://user:password@ep-xxx.region.aws.neon.tech/neondb?sslmode=require
 
-# Clerk
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_publishable_key
-CLERK_SECRET_KEY=your_secret_key
+# NextAuth — required
+NEXTAUTH_SECRET=generate-with-openssl-rand-base64-32
+NEXTAUTH_URL=http://localhost:3000
 
-# Gemini
+# Google OAuth — get from console.cloud.google.com
+# Authorized redirect URI: http://localhost:3000/api/auth/callback/google
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+
+# Google Gemini API Key — get from aistudio.google.com
 GEMINI_API_KEY=your_gemini_api_key
 
-# Lemon Squeezy (optional)
-LEMON_SQUEEZY_API_KEY=your_api_key
+# Host URL
+NEXT_PUBLIC_HOST_URL=http://localhost:3000/
+
+
+# UploadCare (optional - for image uploads in slides)
+NEXT_PUBLIC_UPLOADCARE_PUBLIC_KEY=
+
+# Dev bypass — set to true to skip subscription checks locally
+DEV_BYPASS_PAYMENTS=true
+
 ```
 
 > **Neon tip:** In your Neon dashboard, go to your project → Connection Details.
@@ -123,10 +138,8 @@ prisma/
 
 ## Roadmap
 
-- [x] AI Slide Generator
-- [x] Themes & Images
-- [x] Clerk Authentication
-- [x] Lemon Squeezy Integration
+- [ ] AI Slide Generator
+- [ ] Themes & Images
 - [ ] Team Collaboration
 - [ ] Export as PPTX/PDF
 - [ ] Cloud Deployment (Vercel)

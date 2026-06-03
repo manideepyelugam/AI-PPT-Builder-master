@@ -2,8 +2,6 @@ import { Home, Settings, Trash } from "lucide-react";
 import { ComponentGroup, LayoutGroup, Theme } from "./types";
 import { curatedThemes } from "./theme/themes";
 import {
-  BlankCardIcon,
-  FourImageColumnsIcon,
   FullImageIcon,
   HeroIcon,
   ImageAndTextIcon,
@@ -16,7 +14,6 @@ import {
   ThreeImageColumnsIcon,
   TitleBodyIcon,
   TwoColumnsIcon,
-  TwoImageColumnsIcon,
 } from "./IconsComponent";
 import {
   FullImage,

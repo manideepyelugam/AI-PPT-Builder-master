@@ -34,13 +34,13 @@ const NavMain = ({
             <SidebarMenuButton
               asChild
               tooltip={item.title}
-              className={`${pathname.includes(item.url) && "bg-sidebar-accent text-sidebar-accent-foreground"} hover:bg-sidebar-accent/60 cursor-pointer`}
+              className={`${pathname.includes(item.url) && "bg-sidebar-accent text-sidebar-accent-foreground"} hover:bg-sidebar-accent/60 cursor-pointer px-4`}
             >
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
                 <item.icon className="text-lg" />
                 <Link
                   href={item.url}
-                  className={`text-lg ${pathname.includes(item.url) && "font-bold"} w-full`}
+                  className={`text-md ${pathname.includes(item.url) && "font-medium"} w-full`}
                 >
                   <span>{item.title}</span>
                 </Link>

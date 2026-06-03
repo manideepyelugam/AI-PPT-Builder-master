@@ -32,7 +32,7 @@ const MethodSelect = () => {
 
   return (
     <motion.div
-      className="mx-auto w-full max-w-5xl space-y-10 px-4 py-12"
+      className="mx-auto w-full space-y-10 px-4 "
       variants={containerVaraints}
       initial="hidden"
       animate="visible"
@@ -76,18 +76,16 @@ const MethodSelect = () => {
               variants={itemVatiants}
               whileHover={{ y: -2 }}
               transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-              className={`${
-                m.highlight ? "bg-vivid-gradient" : "bg-border"
-              } rounded-2xl p-[1px]`}
+              className={`${m.highlight ? "bg-vivid-gradient" : "bg-border"
+                } rounded-2xl p-[1px]`}
             >
               <div className="bg-card flex h-full w-full flex-col items-start justify-between gap-6 rounded-2xl p-6">
                 <div className="flex w-full flex-col items-start gap-3">
                   <div
-                    className={`${
-                      m.highlight
-                        ? "bg-vivid-gradient text-primary-foreground"
-                        : "bg-muted text-foreground"
-                    } inline-flex size-10 items-center justify-center rounded-xl`}
+                    className={`${m.highlight
+                      ? "bg-vivid-gradient text-primary-foreground"
+                      : "bg-muted text-foreground"
+                      } inline-flex size-10 items-center justify-center rounded-xl`}
                   >
                     <Icon className="size-5" />
                   </div>
@@ -95,9 +93,8 @@ const MethodSelect = () => {
                     {m.title}
                   </p>
                   <p
-                    className={`${
-                      m.highlight ? "text-vivid" : "text-foreground"
-                    } text-3xl font-semibold tracking-tight md:text-4xl`}
+                    className={`${m.highlight ? "text-vivid" : "text-foreground"
+                      } text-3xl font-semibold tracking-tight md:text-4xl`}
                   >
                     {m.highlightedText}
                   </p>
@@ -107,7 +104,7 @@ const MethodSelect = () => {
                 </div>
                 <Button
                   variant={m.highlight ? "default" : "outline"}
-                  className="font-medium"
+                  className="font-medium cursor-pointer"
                   size="sm"
                   onClick={() => setPage(m.type)}
                 >

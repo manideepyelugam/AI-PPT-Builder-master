@@ -1,12 +1,9 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
-  SidebarHeader,
-  SidebarMenuButton,
 } from "@/components/ui/sidebar";
 import { Project, User } from "@prisma/client";
 import React from "react";
@@ -25,27 +22,15 @@ const AppSidebar = ({
   return (
     <Sidebar
       collapsible="icon"
-      className="bg-background/10 max-w-[212px]"
+      className="bg-background/10 max-w-[255px]"
       {...props}
     >
-      <SidebarHeader className="px-2 pt-6 pb-0">
-        <SidebarMenuButton
-          size={"lg"}
-          className="data-[state=open]:text-sidebar-accent-foreground"
-        >
-          <div className="text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-            <Avatar className="size-10 rounded-full">
-              <AvatarImage src="/logo.png" alt="AI PPT Maker" />
-              <AvatarFallback className="rounded-lg">AI</AvatarFallback>
-            </Avatar>
-          </div>
-          <span className="text-primary truncate text-3xl font-semibold">
-            AI PPT Maker
-          </span>
-        </SidebarMenuButton>
-      </SidebarHeader>
-      <SidebarContent className="mt-10 gap-y-6 px-2">
+      <div className="w-full h-[80px] border-b ">
+
+      </div>
+      <SidebarContent className="gap-y-2 mt-6 px-2">
         <NavMain items={data.navMain} />
+        <div className="h-[1px] w-full bg-black/20"></div>
         <RecentOpen recentProjects={recentProjects} />
       </SidebarContent>
       <SidebarFooter>

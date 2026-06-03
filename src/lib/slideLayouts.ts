@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import type { ContentType, LayoutSlides } from "./types";
+import type { ContentType, LayoutSlides, ContentItem } from "./types";
 import { placeholderImageUrl } from "./images/placeholder";
 
 const img = (alt: string) => ({
@@ -241,7 +241,7 @@ export const ThreeColumn: LayoutSlides = {
         type: "resizable-column" as ContentType,
         name: "Three columns",
         className: "gap-[var(--slide-gutter)]",
-        content: ["col-1", "col-2", "col-3"].map((group) => ({
+        content: ["col-1", "col-2", "col-3"].map((group): ContentItem => ({
           id: uuidv4(),
           type: "column" as ContentType,
           name: `Column ${group}`,
@@ -379,7 +379,7 @@ export const ImageGrid: LayoutSlides = {
         type: "resizable-column" as ContentType,
         name: "Image columns",
         className: "gap-[var(--slide-gutter)]",
-        content: [1, 2, 3].map((i) => ({
+        content: [1, 2, 3].map((i): ContentItem => ({
           id: uuidv4(),
           type: "column" as ContentType,
           name: `Image ${i}`,
@@ -465,7 +465,7 @@ export const Stats: LayoutSlides = {
         type: "resizable-column" as ContentType,
         name: "Stats row",
         className: "gap-[var(--slide-gutter)]",
-        content: [1, 2, 3].map((i) => ({
+        content: [1, 2, 3].map((i): ContentItem => ({
           id: uuidv4(),
           type: "column" as ContentType,
           name: `Stat ${i}`,

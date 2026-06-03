@@ -19,6 +19,7 @@ const TheamSwicher = () => {
   return (
     <div>
       <Switch
+
         checked={theme === "dark"}
         className="data-[state=checked]:bg-primary/20 h-10 w-20 pl-1"
         aria-label="Toggle dark mode"
