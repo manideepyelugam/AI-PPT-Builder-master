@@ -12,19 +12,18 @@
 
 AI PPT Builder is a SaaS tool that helps you create beautiful, professional presentations using **Google Gemini AI**. It generates slide outlines, themes, layouts, and visuals while allowing full customization with an intuitive **drag-and-drop editor**.
 
-Built with **Next.js, Clerk, Prisma, and Lemon Squeezy**.
+Built with **Next.js, Next Auth, Prisma**.
 
 ---
 
 ## Key Features
 
-- **Clerk Authentication** – Secure login and signup.
+- **Next Auth Authentication** – Secure login and signup.
 - **AI Outline Generator** – Turn prompts into structured slides via Gemini.
 - **Themes & Layouts** – Choose from prebuilt or AI-generated themes.
 - **AI-Powered Images** – Generate visuals using Google Imagen 3.
 - **Drag-and-Drop Editor** – Fully customizable slides.
 - **Save & Manage Projects** – All presentations in one place.
-- **Monetization** – Integrated with Lemon Squeezy.
 
 ---
 
@@ -33,8 +32,7 @@ Built with **Next.js, Clerk, Prisma, and Lemon Squeezy**.
 - **Frontend:** Next.js 15, TypeScript, TailwindCSS 4, ShadCN UI
 - **Backend:** Prisma ORM, Neon PostgreSQL
 - **AI:** Google Gemini (text) + Imagen 3 (images)
-- **Auth:** Clerk
-- **Payments:** Lemon Squeezy
+- **Auth:** Next Auth
 - **State:** Zustand
 
 ---
@@ -46,8 +44,6 @@ Built with **Next.js, Clerk, Prisma, and Lemon Squeezy**.
 - Node.js 18+
 - Neon PostgreSQL account
 - Google Gemini API Key ([Get one here](https://aistudio.google.com/app/apikey))
-- Clerk API Keys
-- Lemon Squeezy API Keys (optional, for payments)
 
 ### Installation
 
