@@ -154,7 +154,7 @@ const ProjectCard = ({
       className={`group bg-card border-border hover:border-foreground/20 flex w-full flex-col gap-3 rounded-xl border p-3 transition-[border-color,box-shadow,transform] hover:shadow-sm ${!isDeleted && "cursor-pointer"}`}
     >
       <div
-        className="border-border-subtle relative aspect-[16/10] cursor-pointer overflow-hidden rounded-lg border"
+        className="border-border-subtle relative object-contain aspect-[16/9] cursor-pointer overflow-hidden rounded-lg border"
         onClick={handleNavigation}
       >
         <ThumbnailPreview

@@ -159,7 +159,7 @@ const CreateAI = () => {
 
   return (
     <motion.div
-      className="mx-auto w-full max-w-4xl space-y-6 px-4 py-10 sm:px-6 lg:px-8"
+      className="mx-auto w-full  space-y-6 px-4 py-10 sm:px-6 lg:px-8"
       variants={containerVaraints}
       initial="hidden"
       animate="visible"
@@ -194,17 +194,21 @@ const CreateAI = () => {
         )}
       </motion.div>
 
+      <div className="flex flex-col  items-center w-full justify-center ">
+
+      
+
       <motion.div
         variants={itemVatiants}
-        className="bg-card border-border rounded-2xl border p-4"
+        className="w-full max-w-3xl border-border rounded-2xl border p-4"
       >
-        <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
+        <div className="flex flex-col items-center w-full justify-between gap-3 sm:flex-row">
           <Input
             value={currentAIPrompt}
             onChange={(e) => setCurrentAIPrompt(e.target.value)}
             required
             placeholder="Describe your presentation in detail…"
-            className="flex-grow border-0 bg-transparent py-0 text-base shadow-none focus-visible:ring-0 sm:text-lg"
+            className="flex-grow border-0 bg-transparent py-0 text-base w-full shadow-none focus-visible:ring-0 sm:text-lg"
           />
           <div className="flex items-center gap-3">
             <div
@@ -228,28 +232,28 @@ const CreateAI = () => {
         </div>
       </motion.div>
 
-      <div className="flex w-full items-center justify-center">
+      <div className="flex w-full my-5 items-center justify-center">
         <Button
           className="flex items-center gap-2 font-medium"
           onClick={generateOutlines}
           disabled={isGenerating}
         >
           {isGenerating && outlines.length === 0 ? (
-            <>
+            <p className="text-sm font-medium flex gap-2 items-center">
               <Loader2 className="size-4 animate-spin" />
               Generating titles…
-            </>
+            </p>
           ) : outlines.length === 0 ? (
-            <>
+            <p className="text-sm font-medium flex gap-2 items-center">
               <Sparkles className="size-4" />
               Generate titles
-            </>
+            </p>
           ) : (
-            <>
+            <p className="text-sm font-medium flex gap-2 items-center">
               <RotateCcw className="size-4" />
               Regenerate titles
               <ArrowRight className="size-4" />
-            </>
+            </p>
           )}
         </Button>
       </div>
@@ -267,23 +271,27 @@ const CreateAI = () => {
 
       {outlines.length > 0 && (
         <Button
-          className="my-4 h-12 w-full text-base font-medium"
+          className="my-4 h-12 w-full max-w-3xl text-base font-medium"
           onClick={handleGenerate}
           disabled={isGenerating || numberOfCards === 0 || numberOfCards > 15}
         >
           {isGenerating ? (
-            <>
+            <p className="text-sm font-medium flex gap-2 items-center">
               <Loader2 className="mr-2 size-4 animate-spin" />
               Generating presentation…
-            </>
+            </p>
           ) : (
-            <>
+            <p className="text-sm font-medium flex gap-2 items-center">
               <Sparkles className="mr-2 size-4" />
               Approve &amp; Generate Presentation
-            </>
+            </p>
           )}
         </Button>
       )}
+
+      </div>
+
+
     </motion.div>
   );
 };

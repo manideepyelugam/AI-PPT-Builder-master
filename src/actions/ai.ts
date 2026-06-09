@@ -107,7 +107,7 @@ async function callGeminiImage(prompt: string): Promise<string | null> {
   }
 
   const url =
-    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image-preview:generateContent";
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent";
   const body = {
     contents: [
       {
@@ -120,7 +120,7 @@ async function callGeminiImage(prompt: string): Promise<string | null> {
       },
     ],
     generationConfig: {
-      // gemini-2.5-flash-image-preview requires BOTH modalities listed.
+      // gemini-3.1-flash-image-preview requires BOTH modalities listed.
       responseModalities: ["IMAGE", "TEXT"],
     },
   };

@@ -77,12 +77,12 @@ const PresentationMode = ({ onClose }: PresentationModeProps) => {
           >
             <SlideThemeProvider
               theme={currentTheme}
-              className={`pointer-events-none size-full ${slides[currentSlideIndex].className ?? ""}`}
+              className={`pointer-events-none size-full ${slides[currentSlideIndex]?.className ?? ""}`}
             >
               <MasterRecursiveComponent
-                content={slides[currentSlideIndex].content}
+                content={slides[currentSlideIndex]?.content}
                 onContentChange={() => {}}
-                slideId={slides[currentSlideIndex].id}
+                slideId={slides[currentSlideIndex]?.id}
                 isPreview={false}
                 isEditable={false}
                 index={currentSlideIndex}

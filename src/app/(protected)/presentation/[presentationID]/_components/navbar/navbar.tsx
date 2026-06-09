@@ -96,16 +96,6 @@ const Navbar = ({ presentationID }: NavbarProps) => {
           <span className="hidden text-sm sm:inline">Share</span>
         </Button>
 
-        <Link href={`/presentation/${presentationID}/select-theme`}>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="gap-1.5 text-gray-600 hover:text-gray-900"
-          >
-            <Palette className="size-4" />
-            <span className="hidden text-sm sm:inline">Theme</span>
-          </Button>
-        </Link>
 
         <Button
           variant="ghost"
