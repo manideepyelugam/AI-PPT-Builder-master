@@ -188,7 +188,7 @@ const CardList = ({
 
   return (
     <motion.div
-      className="-my-2 space-y-2"
+      className="-my-2 space-y-2  w-full max-w-3xl"
       layout
       onDragOver={(e) => {
         e.preventDefault();

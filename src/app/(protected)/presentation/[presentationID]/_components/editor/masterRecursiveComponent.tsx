@@ -42,18 +42,18 @@ const ContentRenderer: React.FC<MasterRecursiveComponentProps> = React.memo(
   ({ content, slideId, isEditable, isPreview, onContentChange }) => {
     const handleChange = useCallback(
       (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        onContentChange(content.id, e.target.value);
+        onContentChange(content?.id, e.target.value);
       },
-      [content.id, onContentChange]
+      [content?.id, onContentChange]
     );
 
     const commonProps = {
-      placeholder: content.placeholder,
-      value: content.content as string,
+      placeholder: content?.placeholder,
+      value: content?.content as string,
       isPreview: isPreview,
       onChange: handleChange,
-      styles: content.styles,
-      contentId: content.id,
+      styles: content?.styles,
+      contentId: content?.id,
       slideId: slideId,
     };
 
@@ -63,7 +63,7 @@ const ContentRenderer: React.FC<MasterRecursiveComponentProps> = React.memo(
       transition: { duration: 0.5 },
     };
 
-    switch (content.type) {
+    switch (content?.type) {
       case "heading1":
         return (
           <motion.div className="size-full" {...animationProps}>
